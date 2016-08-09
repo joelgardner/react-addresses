@@ -1,0 +1,350 @@
+/**
+ * MATERIAL DESIGN
+ * http://google.github.io/material-design-icons/
+ */
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/materialdesign/MaterialIcons-Regular.eot'); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url('/fonts/materialdesign/MaterialIcons-Regular.woff2') format('woff2'),
+       url('/fonts/materialdesign/MaterialIcons-Regular.woff') format('woff'),
+       url('/fonts/materialdesign/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-22 { font-size: 22px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+
+/**
+ * IMPORTS
+ */
+
+$address_panel_text_color: #333333;
+$layoutTransitionTime: 0.15s;
+
+@import 'colors/softwarm';
+
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+// needed to have the subnav in the right place in the addresses pane
+.o-panel--nav-top {
+    top: 3.2em;
+}
+
+
+.addresses__panel {
+  background-color: $color1;
+  color: $address_panel_text_color;
+
+
+  nav .c-nav__item--text {
+    cursor:inherit;
+
+    &:hover {
+      background-color:inherit;
+      color:inherit;
+    }
+  }
+
+
+  &__footer span.c-nav__item--right {
+    padding: .9em
+  }
+
+  // needed to have the subnav in the right place in the addresses pane
+  .o-panel--nav-top.o-panel--nav-bottom {
+      top: 2.55em;
+  }
+
+
+  // override blaze card look
+  .c-card {
+    border-radius:0;
+
+    &__item:not(:last-child) {
+      border-bottom: 1px solid $address_border_color;
+    }
+  }
+
+  // set the footer's color
+  .c-nav.c-nav--bottom {
+    background-color:$address_panel_footer_background;
+  }
+
+  #address-inputs input {
+    //border-radius:1px;
+    background-color:$add_address_input_background;
+    border:1px solid #525151;
+    color:#ededed;
+  }
+
+  &__address_item {
+    cursor:pointer;
+
+    &__btn {
+      visibility: hidden;
+    }
+
+    &:hover {
+      background-color:$select_address_hover_color;
+
+      .addresses__panel__address_item__btn {
+        visibility: visible;
+      }
+    }
+
+    &--selected, &--selected:hover {
+      background-color:$selected_address_color;
+    }
+
+
+    &__map_icon {
+      color:#968f8f;
+      cursor:default;
+      &--active {
+        color:$add_address_button_color;
+      }
+    }
+  }
+
+  .address-type-container {
+    margin-top:10px;
+    text-align:center;
+  }
+
+  .button__save {
+    float:right;
+  }
+
+  // adjust the padding for o-container
+  .o-container {
+    padding: 6px
+  }
+
+  .addresses__panel__navbtn {
+    &--add.selected {
+      background-color: $add_address_button_color;
+    }
+  }
+
+  .addresses__indicator_icon {
+    text-align: center;
+
+    i {
+      font-size: 8em;
+    }
+  }
+
+  nav.c-nav_secondary {
+
+    // adhoc icon adjustments for the secondary nav in the addresses panel
+    i {
+      position:relative;
+      top: 3px;
+      right: 1px;
+    }
+
+    &--add {
+      background-color: $add_address_button_color;
+    }
+
+    &--filter {
+      background-color: $filter_addresses_button_color;
+    }
+
+    .c-nav__item {
+      padding:.4em;
+      &:not(:disabled):hover {
+        background-color:inherit;
+      }
+
+      &__clear_filter {
+        color:#ccc;
+      }
+
+      &__clear_filter:hover {
+        color:#fff;
+      }
+    }
+
+    .c-nav__item--text {
+      padding: 0.5em;
+      cursor:inherit;
+
+
+    }
+
+    .addresses__secondary_nav__text {
+      border: none;
+
+      border-radius:1px;
+      color:#dedede;
+
+      &--add {
+        background-color: $add_address_button_color;
+      }
+
+      &--filter {
+        background-color: $add_address_input_background;
+      }
+    }
+
+  }
+
+  transition: $layoutTransitionTime;
+  &--open {
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+
+  &--closed {
+    flex: 0 0 40%;
+    max-width: 40%;
+    margin-left: -40%;
+  }
+}
+
+
+.c-button--misc {
+  background-color: $add_address_input_background;
+
+  &.c-button:not(:disabled):hover {
+    background-color: #6f6464;
+  }
+}
+
+.c-button--misc-off {
+  background-color: #777;
+  color:#aeaeae;
+
+  &.c-button:not(:disabled):hover {
+    background-color: #6f6464;
+  }
+}
+
+
+.map__panel {
+
+
+  &--open {
+    transition: $layoutTransitionTime;
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  &--fill {
+    transition: $layoutTransitionTime;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+
+.c-nav__item {
+
+  padding: 0.8em;
+
+  i.material-icons {
+    font-size:20px;
+  }
+
+  &.c-nav__item__dropdown i.material-icons {
+    position: relative;
+    top: 4px;
+  }
+
+}
+
+::-webkit-input-placeholder {
+   color: #736666;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #736666;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #736666;
+}
+
+:-ms-input-placeholder {
+   color: #736666;
+}
+
+#autocomplete::-webkit-input-placeholder {
+   color: #8ad68d;
+}
+
+#autocomplete:-moz-placeholder { /* Firefox 18- */
+   color: #8ad68d;
+}
+
+#autocomplete::-moz-placeholder {  /* Firefox 19+ */
+   color: #8ad68d;
+}
+
+#autocomplete:-ms-input-placeholder {
+   color: #8ad68d;
+}
+
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+  .addresses__panel--open {
+    flex: 0 0 87.5%;
+    max-width: 87.5%;
+  }
+
+}
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Address Book</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/style/materialdesignicons.min.css" type="text/css">
+    <link rel="stylesheet" href="/style/blaze.min.css" type="text/css">
+    <link rel="stylesheet" href="/style/google-opensans.css" type="text/css">
+    <link rel="stylesheet" href="/style/baseline.css" type="text/css">
+  </head>
+  <body>
+    <div id="content"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjRURQN7sT67RlMxfhnb09mrllTtoJ-VA&libraries=places"></script>
+    <script src="/js/bundle.js"></script>
+    <script>
+      /*
+      // I want to be able to cmd-click to select multiple
+      CTRL_IS_PRESSED = false
+
+
+      document.addEventListener('keydown', function(e) {
+        if (!isCtrlOrCmdKey(e)) return;
+        CTRL_IS_PRESSED = true;
+        console.log('down');
+      }, true);
+
+      document.addEventListener('keyup', function(e) {
+        if (!isCtrlOrCmdKey(e)) return;
+        CTRL_IS_PRESSED = false;
+        console.log("up")
+      }, true);
+
+      function isCtrlOrCmdKey(e) {
+        // on non mac machines, this does the trick
+        if (!e.ctrlKey) {
+
+          // on macs however, the ctrl key triggers a right click :(
+          // so it is not sufficient merely to test for ctrlKey
+          // the cmd key's code varies by browser, so we will test for multiple keyCodes
+          // before we conclude should not trigger allowing multiple selection of addresses
+          // see http://stackoverflow.com/questions/3902635/how-does-one-capture-a-macs-command-key-via-javascript
+          switch (e.keyCode) {
+            case 224: // firefox
+            case 17:  // webkit (safari/chrome)
+            case 91:  // left cmd
+            case 93:  // right cmd
+              break;
+            default:
+              return false;
+          }
+
+        }
+
+        return true;
+      }
+      */
+    </script>
+  </body>
+</html>
